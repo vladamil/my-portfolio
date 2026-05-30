@@ -1,0 +1,74 @@
+.hero {
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   padding-top: var(--nav-height);
+}
+
+.container {
+   max-width: var(--max-width);
+   margin: 0 auto;
+   padding: 0 1.5rem;
+}
+
+.intro {
+   color: var(--primary);
+   font-family: var(--font-mono);
+   font-size: 1rem;
+   margin-bottom: 1rem;
+}
+
+.title {
+   font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive font size! */
+   font-weight: 800;
+   line-height: 1.1;
+   margin-bottom: 1rem;
+}
+
+.title span {
+   color: var(--primary);
+}
+
+.subtitle {
+   font-size: clamp(1.5rem, 5vw, 2.5rem);
+   color: var(--text-muted);
+   font-weight: 600;
+   line-height: 1.2;
+   margin-bottom: 1.5rem;
+}
+
+.description {
+   max-width: 600px;
+   color: var(--text-muted);
+   font-size: 1.1rem;
+   margin-bottom: 3rem;
+}
+
+.cta {
+   display: flex;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+}
+
+.primaryBtn {
+   background: var(--primary);
+   color: white;
+   padding: 1rem 2rem;
+   border-radius: var(--radius);
+   font-weight: 600;
+   transition: var(--transition);
+}
+
+.primaryBtn:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.secondaryBtn {
+   border: 1px solid var(--primary);
+   color: var(--primary);
+   padding: 1rem 2rem;
+   border-radius: var(--radius);
+   font-weight: 600;
+   transition: var(--transition);
+}
