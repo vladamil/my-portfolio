@@ -1,0 +1,144 @@
+.nav {
+   height: var(--nav-height);
+   width: 100%;
+   position: fixed;
+   top: 0;
+   z-index: 1000;
+   display: flex;
+   align-items: center;
+   /* Glassmorphism */
+   background: rgba(10, 10, 12, 0.8);
+   backdrop-filter: blur(10px);
+   border-bottom: 1px solid var(--border);
+}
+
+.container {
+   max-width: var(--max-width);
+   width: 100%;
+   margin: 0 auto;
+   padding: 0 1.5rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.logo {
+   font-weight: 800;
+   font-size: 1.1rem;
+   color: var(--foreground);
+}
+
+.logo span {
+   color: var(--primary);
+}
+
+/* MOBILE NAV (Default) */
+.links {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background: var(--background);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 2rem;
+   list-style: none;
+
+   /* Hidden by default */
+   opacity: 0;
+   visibility: hidden;
+   transform: scale(0.95);
+   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.links.active {
+   opacity: 1;
+   visibility: visible;
+   transform: scale(1);
+}
+
+.links a {
+   font-size: 1.5rem; /* Big on mobile */
+   font-weight: 500;
+   color: var(--text-muted);
+   transition: var(--transition);
+   text-transform: uppercase;
+   letter-spacing: 2px;
+}
+
+.links a:hover {
+   color: var(--primary);
+}
+
+.hamburger {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   width: 2rem;
+   height: 1.5rem;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+   padding: 0;
+   z-index: 1001; /* Must stay above the full-screen overlay */
+}
+
+/* Common Line Styles */
+.line1,
+.line2,
+.line1Open,
+.line2Open {
+   width: 2rem;
+   height: 2px;
+   background: var(--foreground);
+   border-radius: 10px;
+   transition: all 0.3s linear;
+   position: relative;
+   transform-origin: 7px; /* The X rotation point */
+}
+
+/* CLOSED STATE */
+.line1 {
+   transform: rotate(0);
+}
+.line2 {
+   transform: rotate(0);
+}
+
+/* OPEN STATE */
+.line1Open {
+   transform: rotate(45deg);
+   background: var(--primary);
+}
+
+.line2Open {
+   transform: rotate(-45deg);
+   background: var(--primary);
+}
+
+/* DESKTOP MEDIA QUERY */
+@media (min-width: 768px) {
+   .links {
+      position: static;
+      height: auto;
+      width: auto;
+      flex-direction: row;
+      background: transparent;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: none;
+   }
+
+   .links a {
+      font-size: 0.9rem; /* Smaller on desktop */
+      text-transform: none;
+      letter-spacing: 0;
+   }
+   .hamburger {
+      display: none; /* Hide hamburger on desktop */
+   }
+}

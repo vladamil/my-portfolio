@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import CursorGlow from '@/components/ui/CursorGlow/CursorGlow';
+import Navbar from '@/components/layout/Navbar/Navbar';
 import './globals.css';
 
 const inter = Inter({
@@ -17,7 +18,8 @@ export default function RootLayout({ children }) {
       <html lang="en" className={inter.variable}>
          <body>
             <CursorGlow />
-            {/* relative position just for z-index */}
+            <Navbar />
+            {/* Relative position just for z-index, to appear above CursorGlow*/}
             <div style={{ position: 'relative', zIndex: 2 }}>{children}</div>
          </body>
       </html>
