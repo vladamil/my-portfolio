@@ -72,3 +72,40 @@
    font-weight: 600;
    transition: var(--transition);
 }
+
+/* Animation styles */
+.title,
+.subtitle,
+.description,
+.cta,
+.intro {
+   opacity: 0;
+   animation: revealUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.intro {
+   animation-delay: 0.1s;
+}
+.title {
+   animation-delay: 0.2s;
+}
+.subtitle {
+   animation-delay: 0.3s;
+}
+.description {
+   animation-delay: 0.4s;
+}
+.cta {
+   animation-delay: 0.5s;
+}
+
+@keyframes revealUp {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
