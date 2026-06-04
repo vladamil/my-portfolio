@@ -1,3 +1,4 @@
+import { HiDownload } from 'react-icons/hi';
 import styles from './About.module.css';
 
 export default function About() {
@@ -56,18 +57,18 @@ export default function About() {
                >
                   <h4 className={styles.cardLabel}>Resume</h4>
                   <div className={styles.cvContent}>
-                     {/* <HiDownload className={styles.cvIcon} /> */}
-                     <div>
-                        <h4>Resume</h4>
-                        <p>Download CV</p>
-                     </div>
+                     <HiDownload className={styles.cvIcon} />
+                     <p>Download CV</p>
                   </div>
                </a>
 
-               {/* CARD 4: THE STATUS */}
-               <div className={`${styles.card} ${styles.statusCard}`}>
-                  <h4 className={styles.cardLabel}>Current Focus</h4>
-                  <p>Advanced Backend Architecture & 3D Web Experiences</p>
+               {/* CARD 4: LOCATION */}
+               <div className={`${styles.card} ${styles.locationCard}`}>
+                  <h4 className={styles.cardLabel}>Location</h4>
+                  <div className={styles.locationContent}>
+                     <span className={styles.pulseDot}></span>
+                     <p>Novi Sad, Serbia</p>
+                  </div>
                </div>
             </div>
          </div>
