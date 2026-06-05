@@ -1,4 +1,5 @@
 import { HiDownload } from 'react-icons/hi';
+import ScrollReveal from '../ui/ScrollReveal/ScrollReveal';
 import styles from './About.module.css';
 
 export default function About() {
@@ -17,7 +18,10 @@ export default function About() {
          <div className={styles.container}>
             <div className={styles.bentoGrid}>
                {/* CARD 1: THE STORY */}
-               <div className={`${styles.card} ${styles.storyCard}`}>
+               <ScrollReveal
+                  className={`${styles.card} ${styles.storyCard}`}
+                  activeClass={styles.active}
+               >
                   <h3 className={styles.sectionTitle}>About Me</h3>
                   <p>
                      My path to engineering was built on{' '}
@@ -35,10 +39,13 @@ export default function About() {
                      background, I taught myself to bridge the gap between
                      creative logic and technical execution.
                   </p>
-               </div>
+               </ScrollReveal>
 
                {/* CARD 2: THE TECH STACK */}
-               <div className={`${styles.card} ${styles.skillsCard}`}>
+               <ScrollReveal
+                  className={`${styles.card} ${styles.skillsCard}`}
+                  activeClass={styles.active}
+               >
                   <h4 className={styles.cardLabel}>Tech Stack</h4>
                   <div className={styles.skillList}>
                      {skills.map((skill, i) => (
@@ -47,29 +54,33 @@ export default function About() {
                         </span>
                      ))}
                   </div>
-               </div>
+               </ScrollReveal>
 
                {/* CARD 3: THE CV ACTION */}
-               <a
-                  href="/resume.pdf"
-                  download
+               <ScrollReveal
+                  activeClass={styles.active}
                   className={`${styles.card} ${styles.cvCard}`}
                >
                   <h4 className={styles.cardLabel}>Resume</h4>
-                  <div className={styles.cvContent}>
-                     <HiDownload className={styles.cvIcon} />
-                     <p>Download CV</p>
-                  </div>
-               </a>
+                  <a href="/resume.pdf" download>
+                     <div className={styles.cvContent}>
+                        <HiDownload className={styles.cvIcon} />
+                        <p>Download CV</p>
+                     </div>
+                  </a>
+               </ScrollReveal>
 
-               {/* CARD 4: LOCATION */}
-               <div className={`${styles.card} ${styles.locationCard}`}>
+               {/* CARD 4: THE LOCATION */}
+               <ScrollReveal
+                  className={`${styles.card} ${styles.locationCard}`}
+                  activeClass={styles.active}
+               >
                   <h4 className={styles.cardLabel}>Location</h4>
                   <div className={styles.locationContent}>
                      <span className={styles.pulseDot}></span>
                      <p>Novi Sad, Serbia</p>
                   </div>
-               </div>
+               </ScrollReveal>
             </div>
          </div>
       </section>
