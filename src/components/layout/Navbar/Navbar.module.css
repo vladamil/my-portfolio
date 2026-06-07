@@ -25,7 +25,11 @@
 .logo {
    font-weight: 800;
    font-size: 1.1rem;
+   font-family: inherit;
    color: var(--foreground);
+   background: transparent;
+   border: none;
+   cursor: pointer;
 }
 
 .logo span {
@@ -61,7 +65,7 @@
 }
 
 .links a {
-   font-size: 1.5rem; /* Big on mobile */
+   font-size: 1.5rem;
    font-weight: 500;
    color: var(--text-muted);
    transition: var(--transition);
@@ -70,6 +74,23 @@
 }
 
 .links a:hover {
+   color: var(--primary);
+}
+.links .navButton {
+   font-size: 1.5rem;
+   font-weight: 500;
+   font-family: inherit;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   background: none;
+   border: none;
+   color: var(--text-muted);
+   cursor: pointer;
+   padding: 0.5rem 1rem;
+   transition: color var(--transition);
+}
+
+.links .navButton:hover {
    color: var(--primary);
 }
 
@@ -133,8 +154,8 @@
       transition: none;
    }
 
-   .links a {
-      font-size: 0.9rem; /* Smaller on desktop */
+   .links .navButton {
+      font-size: 0.9rem;
       text-transform: none;
       letter-spacing: 0;
    }

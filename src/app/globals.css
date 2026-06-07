@@ -38,6 +38,11 @@ body {
    overflow-x: hidden;
 }
 
+section {
+   /* Tell the browser to leave exactly enough room for the navbar when scrolling */
+   scroll-margin-top: var(--nav-height);
+}
+
 a {
    color: inherit;
    text-decoration: none;

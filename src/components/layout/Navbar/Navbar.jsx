@@ -1,8 +1,16 @@
 'use client';
 import { useState } from 'react';
+import scrollToSection from '@/utils/ScrollToSection';
 import Link from 'next/link';
 
 import styles from './Navbar.module.css';
+
+const navItems = [
+   { label: 'Home', id: 'hero' },
+   { label: 'About', id: 'about' },
+   { label: 'Projects', id: 'projects' },
+   { label: 'Contact', id: 'contact' },
+];
 
 export default function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
@@ -10,27 +18,31 @@ export default function Navbar() {
    return (
       <nav className={styles.nav}>
          <div className={styles.container}>
-            <Link href="/" className={styles.logo}>
+            {/* Logo */}
+            <button
+               className={styles.logo}
+               onClick={() => {
+                  scrollToSection('hero');
+               }}
+            >
                DEV<span>.</span>PORTFOLIO
-            </Link>
+            </button>
 
             {/* Desktop Links */}
             <ul className={`${styles.links} ${isOpen ? styles.active : ''}`}>
-               <li>
-                  <Link href="#about" onClick={() => setIsOpen(false)}>
-                     About
-                  </Link>
-               </li>
-               <li>
-                  <Link href="#projects" onClick={() => setIsOpen(false)}>
-                     Projects
-                  </Link>
-               </li>
-               <li>
-                  <Link href="#contact" onClick={() => setIsOpen(false)}>
-                     Contact
-                  </Link>
-               </li>
+               {navItems.map((item) => (
+                  <li key={item.id}>
+                     <button
+                        className={styles.navButton}
+                        onClick={() => {
+                           scrollToSection(item.id);
+                           setIsOpen(false);
+                        }}
+                     >
+                        {item.label}
+                     </button>
+                  </li>
+               ))}
             </ul>
 
             {/* Hamburger - Only visible on mobile */}
