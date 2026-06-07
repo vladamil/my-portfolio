@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import HeroCTA from '../ui/HeroCTA/HeroCTA';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -18,14 +18,7 @@ export default function Hero() {
                <strong>MongoDB</strong>. Currently focused on building
                accessible, human-centered products.
             </p>
-            <div className={styles.cta}>
-               <Link href="#projects" className={styles.primaryBtn}>
-                  View My Work
-               </Link>
-               <Link href="#contact" className={styles.secondaryBtn}>
-                  Get In Touch
-               </Link>
-            </div>
+            <HeroCTA />
          </div>
       </section>
    );

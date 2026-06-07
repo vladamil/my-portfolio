@@ -51,11 +51,14 @@
 }
 
 .primaryBtn {
+   font-weight: 600;
+   font-size: 1rem;
+   font-family: inherit;
    background: var(--primary);
+   border: 1px solid var(--primary);
    color: white;
    padding: 1rem 2rem;
    border-radius: var(--radius);
-   font-weight: 600;
    transition: var(--transition);
 }
 
@@ -65,11 +68,14 @@
 }
 
 .secondaryBtn {
+   font-weight: 600;
+   font-size: 1rem;
+   font-family: inherit;
+   background: transparent;
    border: 1px solid var(--primary);
    color: var(--primary);
    padding: 1rem 2rem;
    border-radius: var(--radius);
-   font-weight: 600;
    transition: var(--transition);
 }
 
