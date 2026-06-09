@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import scrollToSection from '@/utils/ScrollToSection';
-import Link from 'next/link';
+import { useScrollActiveLink } from '@/hooks/useScrollActiveLink';
 
 import styles from './Navbar.module.css';
 
@@ -14,6 +14,10 @@ const navItems = [
 
 export default function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
+
+   const sectionIds = navItems.map((section) => section.id);
+
+   const activeLink = useScrollActiveLink(sectionIds);
 
    return (
       <nav className={styles.nav}>
@@ -33,7 +37,9 @@ export default function Navbar() {
                {navItems.map((item) => (
                   <li key={item.id}>
                      <button
-                        className={styles.navButton}
+                        className={`${styles.navButton} ${
+                           activeLink === item.id ? styles.activeLink : ''
+                        }`}
                         onClick={() => {
                            scrollToSection(item.id);
                            setIsOpen(false);

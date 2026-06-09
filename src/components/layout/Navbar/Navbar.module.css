@@ -64,18 +64,6 @@
    transform: scale(1);
 }
 
-.links a {
-   font-size: 1.5rem;
-   font-weight: 500;
-   color: var(--text-muted);
-   transition: var(--transition);
-   text-transform: uppercase;
-   letter-spacing: 2px;
-}
-
-.links a:hover {
-   color: var(--primary);
-}
 .links .navButton {
    font-size: 1.5rem;
    font-weight: 500;
@@ -88,10 +76,28 @@
    cursor: pointer;
    padding: 0.5rem 1rem;
    transition: color var(--transition);
+   position: relative;
 }
 
 .links .navButton:hover {
    color: var(--primary);
+}
+
+.links .navButton.activeLink {
+   color: var(--primary);
+}
+
+/* Fancy border under link*/
+.links .navButton.activeLink::after {
+   content: '';
+   position: absolute;
+   bottom: -3px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 100%;
+   height: 4px;
+   background: var(--primary);
+   border-radius: 50%;
 }
 
 .hamburger {
