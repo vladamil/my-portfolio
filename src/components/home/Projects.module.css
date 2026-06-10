@@ -1,0 +1,127 @@
+.projectsSection {
+   padding: 80px 0;
+   background-color: var(--background);
+}
+
+.container {
+   max-width: var(--max-width);
+   margin: 0 auto;
+   padding: 0 2rem;
+   width: 100%;
+}
+
+.sectionTitle {
+   font-size: 2.5rem;
+   margin-bottom: 4rem;
+   font-weight: 700;
+}
+
+.sectionTitle span {
+   color: var(--primary);
+}
+
+/* 1. The Track Container */
+.stackContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem; /* Fallback gap for mobile when stack is flat */
+}
+
+/* 2. The Sticky Card Mechanics */
+.projectCard {
+   position: -webkit-sticky; /* Safari support */
+   position: sticky;
+
+   /* The top property is handled dynamically in JSX to prevent overlapping identical pixels */
+
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 3rem;
+
+   min-height: 450px;
+   width: 100%;
+   padding: 3rem;
+   border-radius: 24px;
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   background-color: #121214; /* Default premium dark background */
+
+   /* Crucial: A soft shadow so that as cards stack, they cast a subtle shadow on the card underneath */
+   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Layout Internal Styling */
+.cardContent {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.subtitle {
+   color: var(--primary);
+   font-size: 0.85rem;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-weight: 600;
+   margin-bottom: 0.75rem;
+}
+
+.title {
+   font-size: 2rem;
+   margin-bottom: 1.5rem;
+   color: var(--foreground);
+}
+
+.description {
+   color: var(--text-muted);
+   line-height: 1.6;
+   margin-bottom: 2rem;
+}
+
+.tagGrid {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+}
+
+.tagPill {
+   background-color: rgba(255, 255, 255, 0.03);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   padding: 0.4rem 0.8rem;
+   border-radius: 100px;
+   font-size: 0.8rem;
+   color: var(--text-muted);
+}
+
+.cardVisual {
+   background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(0, 0, 0, 0) 70%
+   );
+   border-radius: 16px;
+   border: 1px solid rgba(255, 255, 255, 0.03);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Give cards slightly different dark tints to stand out during stacking */
+.flagshipCard {
+   background: linear-gradient(145deg, #141416, #0e0e10);
+}
+.salonCard {
+   background: linear-gradient(145deg, #18181b, #111113);
+}
+.shoppingCard {
+   background: linear-gradient(145deg, #1c1c1f, #141416);
+}
+
+/* Responsive break for mobile devices - flat list instead of stack */
+@media (max-width: 992px) {
+   .projectCard {
+      grid-template-columns: 1fr;
+      position: static !important; /* Turn off sticky on mobile */
+      min-height: auto;
+      padding: 2rem;
+   }
+}
