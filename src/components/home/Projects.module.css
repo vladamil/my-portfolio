@@ -1,127 +1,63 @@
 .projectsSection {
-   padding: 80px 0;
-   background-color: var(--background);
+   position: relative;
+   margin: 80px;
 }
 
-.container {
-   max-width: var(--max-width);
-   margin: 0 auto;
-   padding: 0 2rem;
-   width: 100%;
+/* 1. This creates the scrollable track height */
+.scrollTrack {
+   height: 300vh; /* Gives us plenty of room to scroll through our 3 cards */
 }
 
-.sectionTitle {
-   font-size: 2.5rem;
-   margin-bottom: 4rem;
-   font-weight: 700;
-}
-
-.sectionTitle span {
-   color: var(--primary);
-}
-
-/* 1. The Track Container */
-.stackContainer {
-   display: flex;
-   flex-direction: column;
-   gap: 4rem; /* Fallback gap for mobile when stack is flat */
-}
-
-/* 2. The Sticky Card Mechanics */
-.projectCard {
-   position: -webkit-sticky; /* Safari support */
+/* 2. This pins the camera view perfectly in the center of the screen */
+.stickyStage {
    position: sticky;
-
-   /* The top property is handled dynamically in JSX to prevent overlapping identical pixels */
-
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 3rem;
-
-   min-height: 450px;
-   width: 100%;
-   padding: 3rem;
-   border-radius: 24px;
-   border: 1px solid rgba(255, 255, 255, 0.05);
-   background-color: #121214; /* Default premium dark background */
-
-   /* Crucial: A soft shadow so that as cards stack, they cast a subtle shadow on the card underneath */
-   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* 3. Layout Internal Styling */
-.cardContent {
+   top: 0;
+   height: 100vh;
    display: flex;
    flex-direction: column;
    justify-content: center;
-}
-
-.subtitle {
-   color: var(--primary);
-   font-size: 0.85rem;
-   text-transform: uppercase;
-   letter-spacing: 2px;
-   font-weight: 600;
-   margin-bottom: 0.75rem;
-}
-
-.title {
-   font-size: 2rem;
-   margin-bottom: 1.5rem;
-   color: var(--foreground);
-}
-
-.description {
-   color: var(--text-muted);
-   line-height: 1.6;
-   margin-bottom: 2rem;
-}
-
-.tagGrid {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 0.5rem;
-}
-
-.tagPill {
-   background-color: rgba(255, 255, 255, 0.03);
-   border: 1px solid rgba(255, 255, 255, 0.08);
-   padding: 0.4rem 0.8rem;
-   border-radius: 100px;
-   font-size: 0.8rem;
-   color: var(--text-muted);
-}
-
-.cardVisual {
-   background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.02) 0%,
-      rgba(0, 0, 0, 0) 70%
-   );
-   border-radius: 16px;
-   border: 1px solid rgba(255, 255, 255, 0.03);
-   display: flex;
    align-items: center;
-   justify-content: center;
+   overflow: hidden;
 }
 
-/* Give cards slightly different dark tints to stand out during stacking */
-.flagshipCard {
-   background: linear-gradient(145deg, #141416, #0e0e10);
-}
-.salonCard {
-   background: linear-gradient(145deg, #18181b, #111113);
-}
-.shoppingCard {
-   background: linear-gradient(145deg, #1c1c1f, #141416);
+/* 3. The Deck Wrapper holding our cards */
+.deck {
+   position: relative;
+   width: 90%;
+   max-width: 1000px;
+   height: 500px;
 }
 
-/* Responsive break for mobile devices - flat list instead of stack */
-@media (max-width: 992px) {
-   .projectCard {
-      grid-template-columns: 1fr;
-      position: static !important; /* Turn off sticky on mobile */
-      min-height: auto;
-      padding: 2rem;
-   }
+/* 4. The base Card layer */
+.card {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-radius: 24px;
+   padding: 3rem;
+   color: white;
+
+   /* We set the pivot point to the bottom-center so when it flips, it lifts like a trapdoor */
+   transform-origin: bottom center;
+}
+
+/* 5. The starting positions for the deck stack */
+.card1 {
+   background: #141416;
+   z-index: 3; /* Project 1 is on the very top of the pile */
+   transform: translate3d(0, 0px, 0px) scale(1);
+}
+
+.card2 {
+   background: #18181b;
+   z-index: 2; /* Project 2 sits right underneath */
+   transform: translate3d(0, 15px, -20px) scale(0.96);
+}
+
+.card3 {
+   background: #1c1c1f;
+   z-index: 1; /* Project 3 sits at the very bottom of the deck */
+   transform: translate3d(0, 30px, -40px) scale(0.92);
 }
