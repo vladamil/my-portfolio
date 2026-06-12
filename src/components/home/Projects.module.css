@@ -1,63 +1,127 @@
+/* ==========================================================================
+   1. MOBILE-FIRST BASE STATES (Default for Phones & Tablets)
+   ========================================================================== */
+
 .projectsSection {
    position: relative;
-   margin: 80px;
+   padding: 60px 0;
 }
 
-/* 1. This creates the scrollable track height */
+/* On mobile, this is just a standard container wrapper */
 .scrollTrack {
-   height: 300vh; /* Gives us plenty of room to scroll through our 3 cards */
+   height: auto;
 }
 
-/* 2. This pins the camera view perfectly in the center of the screen */
+/* On mobile, this acts as a normal block wrapper. Content flows naturally. */
 .stickyStage {
-   position: sticky;
-   top: 0;
-   height: 100vh;
+   position: relative;
+   height: auto;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
-   overflow: hidden;
 }
 
-/* 3. The Deck Wrapper holding our cards */
+.sectionTitle {
+   font-size: clamp(1.8rem, 4vw, 2.5rem);
+   margin-bottom: 2.5rem;
+   font-weight: 700;
+}
+
+.sectionTitle span {
+   color: var(--primary);
+}
+
+/* On mobile, cards stack vertically in a normal column layout */
 .deck {
-   position: relative;
-   width: 90%;
-   max-width: 1000px;
-   height: 500px;
-}
-
-/* 4. The base Card layer */
-.card {
-   position: absolute;
-   top: 0;
-   left: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
    width: 100%;
-   height: 100%;
-   border-radius: 24px;
-   padding: 3rem;
-   color: white;
-
-   /* We set the pivot point to the bottom-center so when it flips, it lifts like a trapdoor */
-   transform-origin: bottom center;
+   padding: 0 1rem;
 }
 
-/* 5. The starting positions for the deck stack */
+/* Base card styling for mobile */
+.card {
+   position: relative; /* Overriding the absolute stacking on mobile */
+   width: 100%;
+   min-height: 320px;
+   background-color: #141416;
+   border-radius: 20px;
+   padding: 2rem;
+   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .card1 {
    background: #141416;
-   z-index: 3; /* Project 1 is on the very top of the pile */
-   transform: translate3d(0, 0px, 0px) scale(1);
 }
-
 .card2 {
    background: #18181b;
-   z-index: 2; /* Project 2 sits right underneath */
-   transform: translate3d(0, 15px, -20px) scale(0.96);
 }
-
 .card3 {
    background: #1c1c1f;
-   z-index: 1; /* Project 3 sits at the very bottom of the deck */
-   transform: translate3d(0, 30px, -40px) scale(0.92);
+}
+
+/* ==========================================================================
+   2. DESKTOP ENHANCEMENT (Laptops & Monitors)
+   ========================================================================== */
+@media (min-width: 992px) {
+   .projectsSection {
+      padding: 0;
+   }
+
+   /* 1. This creates the scrollable track height */
+   .scrollTrack {
+      height: 300vh;
+   }
+
+   /* 2. This pins the camera view perfectly in the center of the screen */
+   .stickyStage {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      justify-content: center;
+      overflow: hidden;
+   }
+
+   .sectionTitle {
+      margin-bottom: 4rem;
+   }
+
+   /* 3. The Deck Wrapper holding our cards */
+   .deck {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 500px;
+      padding: 0;
+   }
+
+   /* 4. The base Card layer */
+   .card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      /* Smooth transition for when our JavaScript changes their positions */
+      transition:
+         transform 0.1s linear,
+         opacity 0.1s linear;
+   }
+
+   /* 5. The starting positions for the deck stack */
+   .card1 {
+      z-index: 3;
+      transform: translateY(0px) scale(1);
+   }
+
+   .card2 {
+      z-index: 2;
+      transform: translateY(30px) scale(0.96);
+   }
+
+   .card3 {
+      z-index: 1;
+      transform: translateY(60px) scale(0.92);
+   }
 }
