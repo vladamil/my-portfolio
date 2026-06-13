@@ -28,21 +28,78 @@
 .card {
    position: relative;
    width: 100%;
-   min-height: 320px;
-   border-radius: 20px;
-   padding: 2rem;
-   border: 1px solid rgba(255, 255, 255, 0.05);
-   color: white;
+   min-height: 380px;
+   border-radius: 24px;
+   padding: 2.5rem;
+   border: 1px solid rgba(255, 255, 255, 0.03);
+   color: var(--foreground);
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 .card1 {
-   background: #141416;
+   background: linear-gradient(135deg, #141416 0%, #1a1a1e 100%);
 }
 .card2 {
-   background: #18181b;
+   background: linear-gradient(135deg, #18181b 0%, #222227 100%);
 }
 .card3 {
-   background: #1c1c1f;
+   background: linear-gradient(135deg, #1c1c1f 0%, #27272e 100%);
+}
+
+.cardHeader {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1.5rem;
+}
+
+.cardNum {
+   font-family: var(--font-jetbrains);
+   font-size: 0.9rem;
+   color: var(--primary);
+   font-weight: 700;
+   background: rgba(0, 112, 243, 0.1);
+   padding: 4px 10px;
+   border-radius: 12px;
+}
+
+.cardSubtitle {
+   font-size: 0.8rem;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   color: var(--text-muted);
+}
+
+.cardTitle {
+   font-size: 1.75rem;
+   font-weight: 700;
+   color: #ffffff;
+   margin-bottom: 1rem;
+}
+
+.cardDescription {
+   font-size: 0.95rem;
+   line-height: 1.6;
+   color: #d4d4d8;
+   margin-bottom: 2rem;
+   flex-grow: 1;
+}
+
+.tagContainer {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+}
+
+.tag {
+   background: rgba(255, 255, 255, 0.04);
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   padding: 6px 14px;
+   border-radius: 30px;
+   font-size: 0.8rem;
+   color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -109,9 +166,9 @@
    }
 
    .navNumber {
-      font-size: 1rem;
-      font-family: monospace;
-      color: #0070f3;
+      font-size: 0.9rem;
+      font-family: var(--font-jetbrains);
+      color: var(--primary);
       font-weight: 700;
       margin-top: 2px;
    }
