@@ -1,54 +1,38 @@
 /* ==========================================================================
-   1. MOBILE-FIRST BASE STATES (Default for Phones & Tablets)
+   1. MOBILE-FIRST BASE STATES (Phones & Tablets)
    ========================================================================== */
-
 .projectsSection {
    position: relative;
-   padding: 60px 0;
+   padding: 60px 20px;
 }
 
-/* On mobile, this is just a standard container wrapper */
-.scrollTrack {
-   height: auto;
-}
-
-/* On mobile, this acts as a normal block wrapper. Content flows naturally. */
-.stickyStage {
-   position: relative;
-   height: auto;
+.container {
+   width: 100%;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   gap: 2.5rem;
 }
 
-.sectionTitle {
-   font-size: clamp(1.8rem, 4vw, 2.5rem);
-   margin-bottom: 2.5rem;
-   font-weight: 700;
+/* Hide the advanced navigation on mobile completely */
+.navigationSidebar {
+   display: none;
 }
 
-.sectionTitle span {
-   color: var(--primary);
-}
-
-/* On mobile, cards stack vertically in a normal column layout */
 .deck {
    display: flex;
    flex-direction: column;
    gap: 1.5rem;
    width: 100%;
-   padding: 0 1rem;
 }
 
-/* Base card styling for mobile */
 .card {
-   position: relative; /* Overriding the absolute stacking on mobile */
+   position: relative;
    width: 100%;
    min-height: 320px;
-   background-color: #141416;
    border-radius: 20px;
    padding: 2rem;
    border: 1px solid rgba(255, 255, 255, 0.05);
+   color: white;
 }
 
 .card1 {
@@ -62,66 +46,152 @@
 }
 
 /* ==========================================================================
-   2. DESKTOP ENHANCEMENT (Laptops & Monitors)
+   2. DESKTOP ENHANCEMENT (Monitors)
    ========================================================================== */
 @media (min-width: 992px) {
    .projectsSection {
-      padding: 0;
-   }
-
-   /* 1. This creates the scrollable track height */
-   .scrollTrack {
-      height: 300vh;
-   }
-
-   /* 2. This pins the camera view perfectly in the center of the screen */
-   .stickyStage {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      height: 100vh;
+      padding: 60px 10px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      overflow: hidden;
    }
 
-   .sectionTitle {
-      margin-bottom: 4rem;
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 350px 1fr; /* Sidebar on left, Cards on right */
+      gap: 0px;
+      align-items: center;
    }
 
-   /* 3. The Deck Wrapper holding our cards */
+   .navigationSidebar {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-left: 2px solid rgba(255, 255, 255, 0.05);
+      padding-left: 20px;
+   }
+
+   /* The moving background accent pill */
+   .indicatorPill {
+      position: absolute;
+      left: -2px;
+      top: 0;
+      width: 2px;
+      height: 80px; /* Matches the exact height bounding box of nav items */
+      background: linear-gradient(to bottom, #0070f3, #00dfd8);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+
+   .navItem {
+      background: none;
+      border: none;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      height: 80px;
+      padding: 10px 0;
+      opacity: 0.3;
+      transition: opacity 0.3s ease;
+   }
+
+   .navItem:hover {
+      opacity: 0.7;
+   }
+
+   .activeNav {
+      opacity: 1 !important;
+   }
+
+   .navNumber {
+      font-size: 1rem;
+      font-family: monospace;
+      color: #0070f3;
+      font-weight: 700;
+      margin-top: 2px;
+   }
+
+   .navText h4 {
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 4px;
+      transition: transform 0.3s ease;
+   }
+
+   .navText p {
+      font-size: 0.85rem;
+      color: #888;
+   }
+
+   .activeNav .navText h4 {
+      transform: translateX(6px); /* Micro-interaction pop */
+   }
+
+   /* --- DECK VIEWPORT STYLES --- */
+   .deckWrapper {
+      position: relative;
+      width: 100%;
+      height: 450px;
+   }
+
    .deck {
       position: relative;
-      width: 90%;
-      max-width: 1000px;
-      height: 500px;
-      padding: 0;
+      width: 100%;
+      height: 100%;
    }
 
-   /* 4. The base Card layer */
    .card {
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
-      /* Smooth transition for when our JavaScript changes their positions */
+
       transition:
-         transform 0.1s linear,
-         opacity 0.1s linear;
+         transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+         opacity 0.6s ease;
    }
 
-   /* 5. The starting positions for the deck stack */
+   /* Card 1 logic */
    .card1 {
       z-index: 3;
       transform: translateY(0px) scale(1);
+      opacity: 1;
+   }
+   .deck[data-active-card='1'] .card1,
+   .deck[data-active-card='2'] .card1 {
+      transform: translateY(-80px) rotate(-2deg); /* Added a slight sophisticated lift rotation */
+      opacity: 0;
    }
 
+   /* Card 2 logic */
    .card2 {
       z-index: 2;
-      transform: translateY(30px) scale(0.96);
+      transform: translateY(20px) scale(0.96);
+      opacity: 1;
+   }
+   .deck[data-active-card='1'] .card2 {
+      transform: translateY(0px) scale(1);
+   }
+   .deck[data-active-card='2'] .card2 {
+      transform: translateY(-80px) rotate(-2deg);
+      opacity: 0;
    }
 
+   /* Card 3 logic */
    .card3 {
       z-index: 1;
-      transform: translateY(60px) scale(0.92);
+      transform: translateY(40px) scale(0.92);
+      opacity: 1;
+   }
+   .deck[data-active-card='1'] .card3 {
+      transform: translateY(20px) scale(0.96);
+   }
+   .deck[data-active-card='2'] .card3 {
+      transform: translateY(0px) scale(1);
    }
 }
