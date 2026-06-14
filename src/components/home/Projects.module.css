@@ -30,7 +30,7 @@
    width: 100%;
    min-height: 380px;
    border-radius: 24px;
-   padding: 2.5rem;
+   padding: 2.5rem 1rem;
    border: 1px solid rgba(255, 255, 255, 0.03);
    color: var(--foreground);
    display: flex;
@@ -50,19 +50,13 @@
 
 .cardHeader {
    display: flex;
-   justify-content: space-between;
+   justify-content: flex-start;
    align-items: center;
    margin-bottom: 1.5rem;
 }
 
 .cardNum {
-   font-family: var(--font-jetbrains);
-   font-size: 0.9rem;
-   color: var(--primary);
-   font-weight: 700;
-   background: rgba(0, 112, 243, 0.1);
-   padding: 4px 10px;
-   border-radius: 12px;
+   display: none;
 }
 
 .cardSubtitle {
@@ -73,7 +67,7 @@
 }
 
 .cardTitle {
-   font-size: 1.75rem;
+   font-size: 1.5rem;
    font-weight: 700;
    color: #ffffff;
    margin-bottom: 1rem;
@@ -87,10 +81,20 @@
    flex-grow: 1;
 }
 
+.cardFooter {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 1.5rem;
+   margin-top: auto; /* Pushes the entire block firmly downwards */
+   width: 100%;
+}
+
 .tagContainer {
    display: flex;
    flex-wrap: wrap;
    gap: 0.5rem;
+   width: 100%;
 }
 
 .tag {
@@ -100,6 +104,34 @@
    border-radius: 30px;
    font-size: 0.8rem;
    color: var(--text-muted);
+}
+
+.actionLinks {
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+   width: 100%;
+   justify-content: flex-end;
+}
+
+.iconLink {
+   color: var(--text-muted);
+   background: rgba(255, 255, 255, 0.03);
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   width: 42px;
+   height: 42px;
+   border-radius: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconLink:hover {
+   color: var(--primary);
+   background: rgba(0, 112, 243, 0.1);
+   border-color: rgba(0, 112, 243, 0.2);
+   transform: translateY(-3px); /* Subtle premium elevation shift */
 }
 
 /* ==========================================================================
@@ -123,6 +155,7 @@
       align-items: center;
    }
 
+   /* --- DESKTOP PROJECTS NAVIGATOR --- */
    .navigationSidebar {
       display: flex;
       flex-direction: column;
@@ -207,10 +240,50 @@
       top: 0;
       left: 0;
       height: 100%;
+      padding: 2.5rem;
 
       transition:
          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
          opacity 0.6s ease;
+   }
+
+   .cardHeader {
+      justify-content: space-between;
+   }
+
+   .cardNum {
+      display: inline-block;
+      font-family: var(--font-jetbrains);
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 700;
+      background: rgba(0, 112, 243, 0.1);
+      padding: 4px 10px;
+      border-radius: 12px;
+   }
+
+   .cardTitle {
+      font-size: 1.75rem;
+   }
+
+   /* Footer side by side for desktop*/
+   .cardFooter {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+   }
+
+   .tagContainer {
+      max-width: 75%;
+   }
+
+   .actionLinks {
+      width: auto;
+      justify-content: flex-start;
+   }
+
+   .iconLink:hover {
+      transform: translateY(-3px);
    }
 
    /* Card 1 logic */
