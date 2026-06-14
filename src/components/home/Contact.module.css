@@ -1,0 +1,165 @@
+/* ==========================================================================
+   1. MOBILE-FIRST BASE LAYOUT (Phones & Tablets)
+   ========================================================================== */
+.contactSection {
+   padding: 60px 20px;
+}
+
+.container {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+}
+
+.infoSide {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+/* Local Availability Micro Badge */
+.statusBadge {
+   display: inline-flex;
+   align-items: center;
+   gap: 10px;
+   background: rgba(16, 185, 129, 0.06);
+   border: 1px solid rgba(16, 185, 129, 0.15);
+   padding: 6px 14px;
+   border-radius: 30px;
+   margin-bottom: 2rem;
+}
+
+.glowingDot {
+   width: 8px;
+   height: 8px;
+   background-color: #10b981;
+   border-radius: 50%;
+   box-shadow: 0 0 10px #10b981;
+}
+
+.statusBadge p {
+   font-size: 0.8rem;
+   font-weight: 500;
+   color: #34d399;
+}
+
+.mainTitle {
+   font-size: 2.25rem;
+   font-weight: 800;
+   line-height: 1.2;
+   margin-bottom: 1.5rem;
+   letter-spacing: -0.02em;
+}
+
+.gradientText {
+   background: linear-gradient(135deg, #0070f3 0%, #00dfd8 100%);
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.subText {
+   font-size: 1rem;
+   line-height: 1.6;
+   color: #a1a1aa;
+   margin-bottom: 2.5rem;
+}
+
+/* Direct Communications Layout Grid */
+.directChannels {
+   display: flex;
+   flex-direction: column;
+   gap: 1.25rem;
+   width: 100%;
+}
+
+.channelLink {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   background: rgba(255, 255, 255, 0.02);
+   border: 1px solid rgba(255, 255, 255, 0.04);
+   padding: 1rem;
+   border-radius: 16px;
+   text-decoration: none;
+   color: inherit;
+   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconBox {
+   width: 44px;
+   height: 44px;
+   background: rgba(255, 255, 255, 0.03);
+   border-radius: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #a1a1aa;
+   transition: all 0.3s ease;
+}
+
+.channelText span {
+   display: block;
+   font-size: 0.75rem;
+   color: #71717a;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   margin-bottom: 2px;
+}
+
+.channelText strong {
+   font-size: 0.95rem;
+   color: #f4f4f5;
+   transition: color 0.3s ease;
+}
+
+/* Premium Hover State Changes */
+.channelLink:hover {
+   background: rgba(0, 112, 243, 0.04);
+   border-color: rgba(0, 112, 243, 0.15);
+}
+
+.channelLink:hover .iconBox {
+   color: #0070f3;
+   background: rgba(0, 112, 243, 0.1);
+}
+
+.channelLink:hover .channelText strong {
+   color: #0070f3;
+}
+
+/* ==========================================================================
+   2. DESKTOP ENHANCEMENT (Monitors Grid Setup)
+   ========================================================================== */
+@media (min-width: 992px) {
+   .contactSection {
+      padding: 80px 0;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr; /* Asymmetrical split */
+      gap: 120px;
+      align-items: start;
+   }
+
+   .mainTitle {
+      font-size: 3.5rem;
+   }
+
+   .subText {
+      font-size: 1.1rem;
+      max-width: 480px;
+   }
+
+   .directChannels {
+      max-width: 400px;
+   }
+}

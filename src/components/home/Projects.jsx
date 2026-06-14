@@ -159,14 +159,6 @@ export default function Projects() {
                                  </a>
                               </div>
                            </div>
-
-                           {/* <div className={styles.tagContainer}>
-                              {project.tags.map((tag, tIdx) => (
-                                 <span key={tIdx} className={styles.tag}>
-                                    {tag}
-                                 </span>
-                              ))}
-                           </div> */}
                         </div>
                      );
                   })}
