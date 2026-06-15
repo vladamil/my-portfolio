@@ -20,7 +20,7 @@
 
 /* Local Availability Micro Badge */
 .statusBadge {
-   display: inline-flex;
+   display: flex;
    align-items: center;
    gap: 10px;
    background: rgba(16, 185, 129, 0.06);
@@ -36,6 +36,7 @@
    background-color: #10b981;
    border-radius: 50%;
    box-shadow: 0 0 10px #10b981;
+   transform: translateY(-1px);
 }
 
 .statusBadge p {
@@ -62,7 +63,7 @@
 .subText {
    font-size: 1rem;
    line-height: 1.6;
-   color: #a1a1aa;
+   color: var(--text-muted);
    margin-bottom: 2.5rem;
 }
 
@@ -95,7 +96,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   color: #a1a1aa;
+   color: var(--text-muted);
    transition: all 0.3s ease;
 }
 
@@ -110,11 +111,11 @@
 
 .channelText strong {
    font-size: 0.95rem;
-   color: #f4f4f5;
+   color: var(--foreground);
    transition: color 0.3s ease;
 }
 
-/* Premium Hover State Changes */
+/* Hover State Changes */
 .channelLink:hover {
    background: rgba(0, 112, 243, 0.04);
    border-color: rgba(0, 112, 243, 0.15);
@@ -134,18 +135,18 @@
    ========================================================================== */
 @media (min-width: 992px) {
    .contactSection {
-      padding: 80px 0;
-      min-height: 85vh;
+      padding: 80px 20px;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
    }
 
    .container {
-      max-width: 1200px;
+      max-width: var(--max-width);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.1fr; /* Asymmetrical split */
+      grid-template-columns: 1.2fr 1fr; /* Asymmetrical split */
       gap: 120px;
       align-items: start;
    }

@@ -10,7 +10,7 @@
    /* Typography Layout */
    --font-main: var(--font-inter), system-ui, sans-serif;
    --font-mono: var(--font-jetbrains), monospace;
-   --max-width: 1100px;
+   --max-width: 1200px;
    --nav-height: 70px;
    --radius: 12px;
 

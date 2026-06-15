@@ -30,9 +30,8 @@ export default function Contact() {
                </h2>
 
                <p className={styles.subText}>
-                  Have a challenging project description or a business idea in
-                  mind? Reach out directly. No corporate layers, just direct
-                  collaboration.
+                  Have a project description or a business idea in mind? Reach
+                  out directly. No corporate layers, just direct collaboration.
                </p>
 
                <div className={styles.directChannels}>
