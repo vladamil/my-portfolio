@@ -122,12 +122,118 @@
 }
 
 .channelLink:hover .iconBox {
-   color: #0070f3;
+   color: var(--primary);
    background: rgba(0, 112, 243, 0.1);
 }
 
 .channelLink:hover .channelText strong {
-   color: #0070f3;
+   color: var(--primary);
+}
+
+/* ---FORM STYLE--- */
+
+.formSide {
+   background: rgba(255, 255, 255, 0.01);
+   border: 1px solid rgba(255, 255, 255, 0.03);
+   padding: 2.5rem 1.5rem;
+   border-radius: 28px;
+}
+
+.contactForm {
+   display: flex;
+   flex-direction: column;
+   gap: 2.5rem;
+}
+
+/* Hide honeypot out of user sight line */
+.honeypot {
+   display: none !important;
+}
+
+.inputGroup {
+   position: relative;
+   width: 100%;
+}
+
+.minimalInput,
+.minimalTextArea {
+   width: 100%;
+   background: transparent;
+   border: none;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+   padding: 12px 0;
+   font-size: 1rem;
+   color: #ffffff;
+   outline: none;
+   transition: border-color 0.4s ease;
+}
+
+.minimalTextArea {
+   resize: none;
+}
+
+.floatingLabel {
+   position: absolute;
+   left: 0;
+   top: 12px;
+   color: #52525b;
+   font-size: 1rem;
+   pointer-events: none;
+   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* THE FLOATING LABEL SYSTEM: Triggers upon user interaction or typed text strings */
+.minimalInput:focus ~ .floatingLabel,
+.minimalInput:not(:placeholder-shown) ~ .floatingLabel,
+.minimalTextArea:focus ~ .floatingLabel,
+.minimalTextArea:not(:placeholder-shown) ~ .floatingLabel {
+   top: -12px;
+   font-size: 0.75rem;
+   color: var(--primary);
+   font-weight: 600;
+}
+
+.minimalInput:focus,
+.minimalTextArea:focus {
+   border-color: var(--primary);
+}
+
+/* SUBMIT BUTTON GRAPHICS */
+.submitBtn {
+   background: #ffffff;
+   border: none;
+   outline: none;
+   color: var(--background);
+   padding: 1rem 2rem;
+   border-radius: 14px;
+   font-weight: 600;
+   font-size: 0.95rem;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 12px;
+   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   margin-top: 1rem;
+}
+
+.submitBtn svg {
+   transition: transform 0.3s ease;
+}
+
+.submitBtn:hover {
+   background: var(--primary);
+   color: #ffffff;
+   box-shadow: 0 10px 25px rgba(0, 112, 243, 0.25);
+}
+
+.submitBtn:hover svg {
+   transform: translateX(4px);
+}
+
+.submitBtn:disabled {
+   opacity: 0.6;
+   cursor: not-allowed;
 }
 
 /* ==========================================================================
@@ -162,5 +268,9 @@
 
    .directChannels {
       max-width: 400px;
+   }
+
+   .formSide {
+      padding: 3.5rem;
    }
 }

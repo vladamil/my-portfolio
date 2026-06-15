@@ -9,9 +9,48 @@ export default function Contact() {
       name: '',
       email: '',
       message: '',
-      _gotcha: '',
+      subject: '', // honeypot field
    });
    const [status, setStatus] = useState('idle');
+
+   const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+   };
+
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+
+      if (formData.subject) {
+         setStatus('success');
+         return;
+      }
+
+      setStatus('loading');
+
+      try {
+         const response = await fetch(
+            'https://formspree.io/f/your_endpoint_id',
+            {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify({
+                  name: formData.name,
+                  email: formData.email,
+                  message: formData.message,
+               }),
+            },
+         );
+
+         if (response.ok) {
+            setStatus('success');
+            setFormData({ name: '', email: '', message: '', subject: '' });
+         } else {
+            setStatus('error');
+         }
+      } catch (error) {
+         setStatus('error');
+      }
+   };
 
    return (
       <section id="contact" className={styles.contactSection}>
@@ -79,16 +118,82 @@ export default function Contact() {
                </div>
             </div>
 
-            {/* FORM PLACEHOLDER */}
-            <div
-               style={{
-                  color: '#52525b',
-                  padding: '2rem',
-                  border: '1px dashed rgba(255,255,255,0.05)',
-                  borderRadius: '24px',
-               }}
-            >
-               Form Side Layer Placeholder
+            {/* RIGHT SIDE: CONTACT FORM */}
+            <div className={styles.formSide}>
+               <form onSubmit={handleSubmit} className={styles.contactForm}>
+                  {/* Invisible Security Guard Field */}
+                  <input
+                     type="text"
+                     name="subject"
+                     value={formData.subject}
+                     onChange={handleChange}
+                     className={styles.honeypot}
+                     tabIndex="-1"
+                     autoComplete="off"
+                  />
+
+                  <div className={styles.inputGroup}>
+                     <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder=" " /* Crucial blank space for label tracking math */
+                        className={styles.minimalInput}
+                     />
+                     <label className={styles.floatingLabel}>Your Name</label>
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                     <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder=" "
+                        className={styles.minimalInput}
+                     />
+                     <label className={styles.floatingLabel}>
+                        Email Address
+                     </label>
+                  </div>
+
+                  <div className={styles.inputGroup}>
+                     <textarea
+                        name="message"
+                        required
+                        rows="5"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder=" "
+                        className={styles.minimalTextArea}
+                     />
+                     <label className={styles.floatingLabel}>
+                        Tell me about your project
+                     </label>
+                  </div>
+
+                  <button
+                     type="submit"
+                     className={styles.submitBtn}
+                     disabled={status === 'loading'}
+                  >
+                     <span>Send Message</span>
+                     <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        fill="none"
+                     >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                     </svg>
+                  </button>
+               </form>
             </div>
          </div>
       </section>
