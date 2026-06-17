@@ -237,6 +237,33 @@
 }
 
 /* ==========================================================================
+   THE AUTOFILL OVERRIDE STYLE SHIELD
+   ========================================================================== */
+
+/* 1. Force the background to stay transparent and text to stay white */
+.minimalInput:-webkit-autofill,
+.minimalInput:-webkit-autofill:hover,
+.minimalInput:-webkit-autofill:focus,
+.minimalTextArea:-webkit-autofill,
+.minimalTextArea:-webkit-autofill:hover,
+.minimalTextArea:-webkit-autofill:focus {
+   -webkit-text-fill-color: #ffffff; /* Forces text to remain bright white */
+   box-shadow: 0 0 0px 1000px #131316 inset; /* Injects an internal solid dark box-shadow to mask the browser's default color */
+   transition: background-color 5000s ease-in-out 0s; /* Extreme delay to prevent the browser from snapping its background back on */
+}
+
+/* 2. Maintain your custom sleek bottom border glow even when autocompleted */
+.minimalInput:-webkit-autofill,
+.minimalTextArea:-webkit-autofill {
+   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.minimalInput:-webkit-autofill:focus,
+.minimalTextArea:-webkit-autofill:focus {
+   border-color: #0070f3 !important;
+}
+
+/* ==========================================================================
    2. DESKTOP ENHANCEMENT (Monitors Grid Setup)
    ========================================================================== */
 @media (min-width: 992px) {

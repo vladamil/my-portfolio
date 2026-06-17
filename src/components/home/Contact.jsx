@@ -141,6 +141,8 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder=" " /* Crucial blank space for label tracking math */
                         className={styles.minimalInput}
+                        autoComplete="off"
+                        spellCheck="false"
                      />
                      <label className={styles.floatingLabel}>Your Name</label>
                   </div>
@@ -154,6 +156,8 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder=" "
                         className={styles.minimalInput}
+                        autoComplete="off"
+                        spellCheck="false"
                      />
                      <label className={styles.floatingLabel}>
                         Email Address
@@ -169,6 +173,8 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder=" "
                         className={styles.minimalTextArea}
+                        autoComplete="off"
+                        spellCheck="false"
                      />
                      <label className={styles.floatingLabel}>
                         Tell me about your project
