@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ScrollReveal from '../ui/ScrollReveal/ScrollReveal';
 import styles from './Contact.module.css';
 
 export default function Contact() {
@@ -57,23 +58,37 @@ export default function Contact() {
          <div className={styles.container}>
             {/* LEFT SIDE: MY GENERAL INFO  */}
             <div className={styles.infoSide}>
-               <div className={styles.statusBadge}>
+               <ScrollReveal
+                  className={styles.statusBadge}
+                  activeClass={styles.active}
+               >
                   <span className={styles.glowingDot} />
                   <p>Available for new projects</p>
-               </div>
+               </ScrollReveal>
 
-               <h2 className={styles.mainTitle}>
+               <ScrollReveal
+                  className={styles.mainTitle}
+                  activeClass={styles.active}
+                  as="h2"
+               >
                   Let's craft something{' '}
                   <span className={styles.gradientText}>exceptional</span>{' '}
                   together.
-               </h2>
+               </ScrollReveal>
 
-               <p className={styles.subText}>
+               <ScrollReveal
+                  className={styles.subText}
+                  activeClass={styles.active}
+                  as="p"
+               >
                   Have a project description or a business idea in mind? Reach
                   out directly. No corporate layers, just direct collaboration.
-               </p>
+               </ScrollReveal>
 
-               <div className={styles.directChannels}>
+               <ScrollReveal
+                  className={styles.directChannels}
+                  activeClass={styles.active}
+               >
                   <a
                      href="mailto:your.email@gmail.com"
                      className={styles.channelLink}
@@ -115,11 +130,15 @@ export default function Contact() {
                         <strong>+381 60 123 4567</strong>
                      </div>
                   </a>
-               </div>
+               </ScrollReveal>
             </div>
 
             {/* RIGHT SIDE: CONTACT FORM */}
-            <div className={styles.formSide}>
+            <ScrollReveal
+               className={styles.formSide}
+               activeClass={styles.active}
+               threshold={0.05}
+            >
                {status === 'success' ? (
                   <div className={styles.successScreen}>
                      <div className={styles.successIcon}>
@@ -245,7 +264,7 @@ export default function Contact() {
                      )}
                   </form>
                )}
-            </div>
+            </ScrollReveal>
          </div>
       </section>
    );

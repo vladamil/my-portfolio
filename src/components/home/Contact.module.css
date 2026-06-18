@@ -28,6 +28,14 @@
    padding: 6px 14px;
    border-radius: 30px;
    margin-bottom: 2rem;
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.7s ease-out;
+}
+
+.statusBadge.active {
+   opacity: 1;
+   transform: translateX(0);
 }
 
 .glowingDot {
@@ -51,6 +59,14 @@
    line-height: 1.2;
    margin-bottom: 1.5rem;
    letter-spacing: -0.02em;
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.7s ease-out 0.15s;
+}
+
+.mainTitle.active {
+   opacity: 1;
+   transform: translateY(0);
 }
 
 .gradientText {
@@ -65,6 +81,14 @@
    line-height: 1.6;
    color: var(--text-muted);
    margin-bottom: 2.5rem;
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.7s ease-out 0.3s;
+}
+
+.subText.active {
+   opacity: 1;
+   transform: translateY(0);
 }
 
 /* Direct Communications Layout Grid */
@@ -73,6 +97,14 @@
    flex-direction: column;
    gap: 1.25rem;
    width: 100%;
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 0.7s ease-out 0.45s;
+}
+
+.directChannels.active {
+   opacity: 1;
+   transform: translateY(0);
 }
 
 .channelLink {
@@ -137,6 +169,14 @@
    border: 1px solid rgba(255, 255, 255, 0.03);
    padding: 2.5rem 1.5rem;
    border-radius: 28px;
+   opacity: 0;
+   transform: scale(0.9);
+   transition: all 0.7s ease-out;
+}
+
+.formSide.active {
+   opacity: 1;
+   transform: scale(1);
 }
 
 .contactForm {
@@ -396,5 +436,6 @@
 
    .formSide {
       padding: 3.5rem;
+      transition-delay: 0.7s;
    }
 }

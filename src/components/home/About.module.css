@@ -141,6 +141,14 @@
 
 /* DESKTOP BENTO LAYOUT */
 @media (min-width: 600px) {
+   .about {
+      padding: 60px 10px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
    .bentoGrid {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;

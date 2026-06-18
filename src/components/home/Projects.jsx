@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import ScrollReveal from '../ui/ScrollReveal/ScrollReveal';
 
 import styles from './Projects.module.css';
 
@@ -49,7 +50,10 @@ export default function Projects() {
       <section id="projects" className={styles.projectsSection}>
          <div className={styles.container}>
             {/* PREMIUM CONTROLS: Left Sidebar Navigation */}
-            <div className={styles.navigationSidebar}>
+            <ScrollReveal
+               className={styles.navigationSidebar}
+               activeClass={styles.active}
+            >
                {/* Visual Sliding Indicator Pill */}
                <div
                   className={styles.indicatorPill}
@@ -70,10 +74,14 @@ export default function Projects() {
                      </div>
                   </button>
                ))}
-            </div>
+            </ScrollReveal>
 
             {/* STACKED CARDS VIEWPORT: Right Side */}
-            <div className={styles.deckWrapper}>
+            <ScrollReveal
+               className={styles.deckWrapper}
+               activeClass={styles.active}
+               threshold={0.05}
+            >
                <div className={styles.deck} data-active-card={activeCard}>
                   {projectsData.map((project, index) => {
                      // Dynamically fetch the card class (e.g., styles.card1, styles.card2)
@@ -163,7 +171,7 @@ export default function Projects() {
                      );
                   })}
                </div>
-            </div>
+            </ScrollReveal>
          </div>
       </section>
    );

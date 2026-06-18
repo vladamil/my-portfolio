@@ -6,6 +6,8 @@ export default function ScrollReveal({
    children,
    className = '',
    activeClass = '',
+   threshold = 0.2,
+   as: Component = 'div',
 }) {
    const [isVisible, setIsVisible] = useState(false);
    const elementRef = useRef(null);
@@ -18,7 +20,7 @@ export default function ScrollReveal({
                observer.unobserve(entry.target);
             }
          },
-         { threshold: 0.2 },
+         { threshold },
       );
 
       if (elementRef.current) {
@@ -26,14 +28,14 @@ export default function ScrollReveal({
       }
 
       return () => observer.disconnect();
-   }, []);
+   }, [threshold]);
 
    return (
-      <div
+      <Component
          ref={elementRef}
          className={`${className} ${isVisible ? activeClass : ''}`}
       >
          {children}
-      </div>
+      </Component>
    );
 }
