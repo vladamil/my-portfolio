@@ -1,0 +1,30 @@
+.footerSection {
+   width: 100%;
+   border-top: 3px solid rgba(255, 255, 255, 0.03); /* Extremely subtle boundary line */
+   padding: 30px 0;
+}
+
+.container {
+   max-width: 1100px;
+   margin: 0 auto;
+   padding: 0 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.minimalText {
+   font-family: var(--font-jetbrains);
+   color: var(--text-muted);
+   font-size: 0.8rem;
+   letter-spacing: 0.08em;
+
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.dot {
+   color: var(--primary);
+   font-size: 1.5rem;
+}
