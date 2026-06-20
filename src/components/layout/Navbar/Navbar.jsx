@@ -29,7 +29,7 @@ export default function Navbar() {
                   scrollToSection('hero');
                }}
             >
-               DEV<span>.</span>PORTFOLIO
+               VM<span>.</span>PORTFOLIO
             </button>
 
             {/* Desktop Links */}

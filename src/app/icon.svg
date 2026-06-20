@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Rounded dark background box matching your site ecosystem -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0c"/>
+  
+  <!-- Sleek monospace typography for your initials -->
+  <text 
+    x="6" 
+    y="20" 
+    fill="#e4e4e7" 
+    font-family="SFMono-Regular, Consolas, monospace" 
+    font-size="12" 
+    font-weight="bold"
+    letter-spacing="0.02em"
+  >VM</text>
+  
+  <!-- Your signature primary colored accent dot -->
+  <circle cx="25" cy="19" r="1.5" fill="#0070f3"/>
+</svg>
