@@ -1,4 +1,3 @@
-import { HiDownload } from 'react-icons/hi';
 import ScrollReveal from '../ui/ScrollReveal/ScrollReveal';
 import styles from './About.module.css';
 
@@ -64,7 +63,25 @@ export default function About() {
                   <h4 className={styles.cardLabel}>Resume</h4>
                   <a href="/resume.pdf" download>
                      <div className={styles.cvContent}>
-                        <HiDownload className={styles.cvIcon} />
+                        {/* Download Icon */}
+                        <svg
+                           viewBox="0 0 24 24"
+                           width="20"
+                           height="20"
+                           stroke="currentColor"
+                           strokeWidth="2"
+                           fill="none"
+                           strokeLinecap="round"
+                           strokeLinejoin="round"
+                           aria-hidden="true"
+                        >
+                           {/* Elegant open bottom tray */}
+                           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                           {/* Precise downward pointing arrow shaft and head */}
+                           <polyline points="7 10 12 15 17 10"></polyline>
+                           <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+
                         <p>Download CV</p>
                      </div>
                   </a>
