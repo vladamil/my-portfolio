@@ -19,6 +19,10 @@
    letter-spacing: -2px;
 }
 
+.sectionTitle span {
+   color: var(--foreground);
+}
+
 /* MOBILE FIRST: Single column stack */
 .bentoGrid {
    display: grid;
@@ -61,6 +65,21 @@
    text-transform: uppercase;
    margin-bottom: 1.5rem;
    display: block;
+}
+
+/* The core narrative text */
+.storyText {
+   font-size: 1.05rem;
+   line-height: 1.4;
+   color: var(--text-muted);
+   font-weight: 300;
+   padding-top: 12px;
+}
+
+.storyText strong {
+   color: #ffffff;
+   font-weight: 600;
+   font-style: italic;
 }
 
 .skillList {

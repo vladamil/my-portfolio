@@ -24,7 +24,6 @@ export const metadata = {
       'Hire freelance web developer',
       'Premium custom website development',
    ],
-   themeColor: '#0a0a0c',
 };
 
 export default function RootLayout({ children }) {

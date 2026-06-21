@@ -21,22 +21,27 @@ export default function About() {
                   className={`${styles.card} ${styles.storyCard}`}
                   activeClass={styles.active}
                >
-                  <h3 className={styles.sectionTitle}>About Me</h3>
-                  <p>
-                     My path to engineering was built on{' '}
-                     <strong>resilience</strong>. Coming from a non-traditional
-                     background, I taught myself to bridge the gap between
-                     creative logic and technical execution.
+                  <h3 className={styles.sectionTitle}>
+                     About <span>Me</span>
+                  </h3>
+                  <p className={styles.storyText}>
+                     I am a full-stack web developer focused on building modern
+                     web applications with{' '}
+                     <strong>React, Next.js, Node.js, and MongoDB.</strong>
                   </p>
-                  <p>
-                     I don't just write code; I solve problems with a focus on
-                     performance and user experience.
+                  <p className={styles.storyText}>
+                     My path into software development has been non-linear,
+                     shaped by continuous learning, persistence, and a long-term
+                     commitment to a goal that never changed. Through years of
+                     hands-on development and independent problem-solving, I
+                     have built a strong foundation in modern web technologies,
+                     application architecture, performance, and user experience.
                   </p>
-                  <p>
-                     My path to engineering was built on{' '}
-                     <strong>resilience</strong>. Coming from a non-traditional
-                     background, I taught myself to bridge the gap between
-                     creative logic and technical execution.
+                  <p className={styles.storyText}>
+                     <strong>Resilience</strong> is one of the qualities that
+                     defines both my journey and my approach to development:
+                     stay curious, solve problems thoughtfully, and keep
+                     improving one step at a time..
                   </p>
                </ScrollReveal>
 
