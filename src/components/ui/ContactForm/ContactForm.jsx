@@ -29,18 +29,15 @@ export default function ContactForm() {
       setStatus('loading');
 
       try {
-         const response = await fetch(
-            'https://formspree.io/f/your_endpoint_id',
-            {
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({
-                  name: formData.name,
-                  email: formData.email,
-                  message: formData.message,
-               }),
-            },
-         );
+         const response = await fetch('https://formspree.io/f/maqgwlyz', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+               name: formData.name,
+               email: formData.email,
+               message: formData.message,
+            }),
+         });
 
          if (response.ok) {
             setStatus('success');

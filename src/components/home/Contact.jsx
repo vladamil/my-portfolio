@@ -58,7 +58,7 @@ export default function Contact() {
                      </div>
                      <div className={styles.channelText}>
                         <span>Email directly</span>
-                        <strong>your.email@gmail.com</strong>
+                        <strong>vladimir.milinic@gmail.com</strong>
                      </div>
                   </a>
 
@@ -77,7 +77,7 @@ export default function Contact() {
                      </div>
                      <div className={styles.channelText}>
                         <span>Call or Ping</span>
-                        <strong>+381 60 123 4567</strong>
+                        <strong>+381 64 328 8038</strong>
                      </div>
                   </a>
                </ScrollReveal>
