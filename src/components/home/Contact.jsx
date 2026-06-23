@@ -40,7 +40,7 @@ export default function Contact() {
                   activeClass={styles.active}
                >
                   <a
-                     href="mailto:your.email@gmail.com"
+                     href="mailto:vladimir.milinic@gmail.com"
                      className={styles.channelLink}
                   >
                      <div className={styles.iconBox}>
@@ -62,7 +62,7 @@ export default function Contact() {
                      </div>
                   </a>
 
-                  <a href="tel:+381601234567" className={styles.channelLink}>
+                  <a href="tel:+381643288038" className={styles.channelLink}>
                      <div className={styles.iconBox}>
                         <svg
                            viewBox="0 0 24 24"
