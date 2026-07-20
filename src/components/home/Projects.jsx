@@ -31,13 +31,13 @@ const projectsData = [
       id: 'shopping-list',
       num: '03',
       title: 'SmartCart Utility',
-      subtitle: 'Real-World Mobile CRUD App',
-      short: 'Mobile CRUD application',
+      subtitle: 'Offline-First Mobile PWA',
+      short: 'Offline-first shopping PWA',
       description:
-         'A mobile-first shopping utility built to replace paper lists. Features instantaneous CRUD states and an optimized in-store checkbox workflow.',
-      tags: ['React', 'State Management', 'Local Storage'],
-      liveUrl: 'https://shopping-list-bata.netlify.app/',
-      githubUrl: 'https://github.com/vladamil/shopping-list',
+         'A mobile-first shopping utility built to replace paper lists. Features reliable offline support, real-time running totals, dynamic service worker caching, and an intuitive in-store workflow.',
+      tags: ['React', 'State Management', 'Local Storage', 'PWA'],
+      liveUrl: 'https://cart-o-grapher.vladimir-milinic.com/',
+      githubUrl: 'https://github.com/vladamil/premium-shopping-list',
    },
 ];
 
